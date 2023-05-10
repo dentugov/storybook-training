@@ -5,7 +5,7 @@ import { ArrowRight, RoundPlus, Delete } from '../icons';
 type Story = StoryObj<typeof meta>;
 
 const meta: Meta<typeof Button> = {
-  title: 'Button',
+  title: 'HTC Design/INPUTS/Button',
   component: Button,
 }
 
