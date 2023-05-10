@@ -1,14 +1,22 @@
 import React from 'react';
-import { StyledButton } from './button.style';
+import { EndIcon, StartIcon, StyledButton } from './button.style';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'medium' | 'small';
   variant?: 'accent' | 'outline' | 'primary';
+  startIcon?: React.ReactNode | null;
+  endIcon?: React.ReactNode | null;
 }
 
-const Button: React.FC<ButtonProps> = ({ size, variant, children, ...restProps }) => {
+export const Button: React.FC<ButtonProps> = (props) => {
+  const { children, startIcon, endIcon } = props;
+
   return (
-    <StyledButton>{children}</StyledButton>
+    <StyledButton {...props}>
+      {startIcon && <StartIcon>{startIcon}</StartIcon>}
+      {children}
+      {endIcon && <EndIcon>{endIcon}</EndIcon>}
+    </StyledButton>
   )
 }
 
@@ -16,5 +24,3 @@ Button.defaultProps = {
   size: 'medium',
   variant: 'accent'
 }
-
-export default Button;
